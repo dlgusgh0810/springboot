@@ -19,6 +19,8 @@
 		<li><a href="configDI">config 파일을 이용한 DI 예제(MVC)</a></li>
 		<li><a href="lombok">lombok울 이용한 DI 예제(MVC)</a></li>
 		<li><a href="xmlDI">XML을 이용한 DI 예제(MVC)</a></li>
+		<li><a href="autoDI">자동설정 방식의 DI 예제(MVC)</a></li>
+		<li><a href="commonDI">공통 의존성 DI 예제(MVC)</a></li>
 	</ul>
 </body>
 </html>

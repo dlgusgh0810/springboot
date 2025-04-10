@@ -10,19 +10,19 @@ import lombok.Setter;
 @Component
 @Getter
 @Setter
-public class animalAutoDI {
+public class AnimalAutoDI {
 	
 	@Autowired
-	private animal cat;
+	private Animal cat;
 	
 	private SmsSender sms;
-	public animalAutoDI(@Qualifier("xmlSms")SmsSender sms) {
+	public AnimalAutoDI(@Qualifier("xmlSms")SmsSender sms) {
 		this.sms = sms;
 	}
 	
-	public animal dog;
+	public Animal dog;
 	@Autowired
-	public void setDog(@Qualifier("dog")animal dog) {
+	public void setDog(@Qualifier("dog")Animal dog) {
 		this.dog=dog;
 	}
 
