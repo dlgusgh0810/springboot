@@ -27,7 +27,7 @@
 	<h3>4주차 실습</h3>
 	<ul>
 		<li><a href="scopeBean">빈 범위 설정 예제</a></li>
-		
+		<li><a href="useDiffentScope">asdf</a></li>
 	</ul>
 </body>
 </html>

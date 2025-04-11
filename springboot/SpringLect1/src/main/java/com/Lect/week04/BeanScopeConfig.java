@@ -1,5 +1,8 @@
 package com.Lect.week04;
 
+import javax.naming.spi.ObjectFactory;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -8,6 +11,7 @@ import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.context.annotation.SessionScope;
 
 import com.Lect.week03.SmsSender;
+import com.Lect.week03.WorkUnit;
 
 @Configuration
 public class BeanScopeConfig {
@@ -31,5 +35,19 @@ public class BeanScopeConfig {
 		return new SmsSender();
 	}
 	
+	@Autowired
+	private WorkUnit[] prototypeBean;
+	
+	@Bean
+	public WorkUnit[] useDifferentScope() {
+		return prototypeBean;
+	}
+	
+	@Autowired
+	private ObjectFactory<WorkUnit[]> prototypeBeanFactory;
+	@Bean
+	public ObjectFactory<WorkUnit[]> objctFactoryBean(){
+		return prototypeBeanFactory;
+	}
 	
 }
