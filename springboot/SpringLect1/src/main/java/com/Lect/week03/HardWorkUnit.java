@@ -14,7 +14,8 @@ public class HardWorkUnit {
 	private WorkUnit workUnit;
 	private String msg;
 	
-	public HardWorkUnit(@Qualifier("workUnit")WorkUnit workUnit) {
+	@Autowired
+	public HardWorkUnit(WorkUnit workUnit) {
 		super();
 		this.workUnit = workUnit;
 	}

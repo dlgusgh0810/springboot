@@ -15,7 +15,7 @@ public class AppConfig {
 	
 	@Bean
 	public List<String> unit(){
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList();
 		list.add("문자열1");
 		list.add("문자열2");
 		return list;
