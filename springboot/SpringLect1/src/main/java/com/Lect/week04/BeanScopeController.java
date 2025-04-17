@@ -4,8 +4,10 @@ import com.Lect.week03.SmsSender;
 import com.Lect.week03.WorkUnit;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -50,5 +52,30 @@ public class BeanScopeController {
         mav.addObject("scopeBeanArray", scopeBeanArray);
         mav.setViewName("week04/differentScopeView");
         return mav;
+    }
+    
+    @ResponseBody
+    @GetMapping("/post&pre")
+    public String customMethod() {
+    	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(InitDestroyUnit.class);
+    	context.close();
+    	return "Consol 출력 메세지를 확인하세요";
+    }
+    @GetMapping({"/awareInterfaceEX"})
+    public ModelAndView awareInterfaceEx (ModelAndView mav) {
+    	AwareInterfaceImp awareInterfaceImp = (AwareInterfaceImp)context.getBean("awareInterfaceImp");
+    	String [] beanNames = awareInterfaceImp.getContext().getBeanDefinitionNames();
+    	mav.addObject("beanNames", beanNames);
+    	mav.setViewName("week04/awareInterfaceView");
+    	
+    	return mav;
+    }
+    
+    @GetMapping({"/externalConfigEx"})
+    public ModelAndView externalConfigEx(ModelAndView mav) {
+    	ExternalConfigComponent externalConfigComponent = (ExternalConfigComponent)context.getBean("externalConfigComponent");
+    	mav.addObject("obj",externalConfigComponent);
+    	mav.setViewName("week04/externalConfigView");
+    	return mav;
     }
 }

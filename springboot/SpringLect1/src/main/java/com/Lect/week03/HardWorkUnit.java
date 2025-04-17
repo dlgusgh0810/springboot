@@ -10,15 +10,16 @@ public class HardWorkUnit {
 
 	@Autowired
 	@Qualifier("configSms")
+	
 	private SmsSender autoSms;
 	private WorkUnit workUnit;
 	private String msg;
 	
 	@Autowired
-	public HardWorkUnit(WorkUnit workUnit) {
-		super();
-		this.workUnit = workUnit;
+	public HardWorkUnit(@Qualifier("workUnit") WorkUnit workUnit) {
+	    this.workUnit = workUnit;
 	}
+
 	
 	public SmsSender getAutoSms() {
 		return autoSms;
