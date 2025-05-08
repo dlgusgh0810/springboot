@@ -35,5 +35,11 @@
 		<li><a href="awareInterfaceEX">Aware 인터페이스 사용</a></li>
 		<li><a href="externalConfigEx">외부 설정</a></li>
 	</ul>
+	<h3>5주차 실습</h3>
+	<ul>
+		<li><a href="beforeAOP">@before 어노테이션 사용</a></li>
+		<li><a href="afterAOP">메서드 실행 후 어노테이션 사용</a></li>
+		
+	</ul>
 </body>
 </html>
