@@ -16,4 +16,10 @@ public class ExAOPService {
 		
 		return random+":"+orderID+"[조건일치]";
 	}
+	public String check(String userId, String role) {
+		if(!"ADMIN".equals(userId.toUpperCase())) {
+			return "접근 권한이 없습니다.";
+		}
+		return "접근 권한이 있어요";
+	}
 }
