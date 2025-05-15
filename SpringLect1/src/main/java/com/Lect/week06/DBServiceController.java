@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DBServiceController {
@@ -40,5 +41,15 @@ public class DBServiceController {
 			conn.close();
 		}
 		return "테이블에 레코드가 추가되었습니다.";
+	}
+
+	@Autowired
+	private MemberService memberService= null;
+
+	@GetMapping("/simpleQuery")
+	public ModelAndView simpleQuery(ModelAndView mav){
+		mav.addObject("members", memberService.getMembers());
+		mav.setViewName("week06/membersView");
+		return mav;
 	}
 }

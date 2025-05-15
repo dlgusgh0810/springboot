@@ -44,7 +44,7 @@
 	<h3>6주차 실습</h3>
 	<ul>
 		<li><a href="usingDataSource">DataSource 타입 객체 사용</a></li>
-
+		<li><a href="simpleQuery">jdbcTemplate.query() 사용1</a></li>
 	</ul>
 </body>
 </html>
