@@ -34,4 +34,9 @@ public class MemberRepository {
         );
         return results;
     }
+    public List<Member> selectAllUsingParameter(String sql, Object[] args){
+        List<Member> results = jdbcTemplate.query(sql, args, new MemberRowMapper());
+        return results;
+    }
+
 }

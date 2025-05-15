@@ -14,4 +14,9 @@ public class MemberService {
         String sql = "select * from member";
         return memberRepos.selectAll(sql);
     }
+    public List<Member> getMembersUsingParameter(){
+        String sql = "select * from MEMBER where email = ? and NAME=?";
+        Object[] args = {"virus1@virus.net", "std1"};
+        return memberRepos.selectAllUsingParameter(sql, args);
+    }
 }

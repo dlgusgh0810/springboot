@@ -45,6 +45,7 @@
 	<ul>
 		<li><a href="usingDataSource">DataSource 타입 객체 사용</a></li>
 		<li><a href="simpleQuery">jdbcTemplate.query() 사용1</a></li>
+		<li><a href="parameterQuery">jdbcTemplate.query() 사용2</a></li>
 	</ul>
 </body>
 </html>

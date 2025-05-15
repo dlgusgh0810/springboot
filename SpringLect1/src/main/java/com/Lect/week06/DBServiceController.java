@@ -52,4 +52,11 @@ public class DBServiceController {
 		mav.setViewName("week06/membersView");
 		return mav;
 	}
+
+	@GetMapping("/parameterQuery")
+	public ModelAndView parameterQuery(ModelAndView mav){
+		mav.addObject("members", memberService.getMembersUsingParameter());
+		mav.setViewName("week06/membersView");
+		return mav;
+	}
 }
