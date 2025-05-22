@@ -11,7 +11,7 @@ public class MemberRowMapper implements RowMapper<Member> {
                 rs.getString("EMAIL"),
                 rs.getString("PASSWORD"),
                 rs.getString("NAME"),
-                rs.getTimestamp("REFDATE").toLocalDateTime()
+                rs.getTimestamp("REGDATE").toLocalDateTime()
         );
         member.setId(rs.getLong("ID"));
         return member;

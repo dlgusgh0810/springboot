@@ -31,7 +31,7 @@ public class DBServiceController {
 			conn = dataSource.getConnection();
 			stmt = conn.createStatement();
 			for(int i = 1; i<=5;i++) {
-				sql = "insert into MEMBER(EMALL,PASSSWORD, NAME,REGDATE values('virus" + i +"@virus.net' , '1234', 'std"+i+"' , now())";
+				sql = "insert into MEMBER(EMAIL,PASSWORD, NAME,REGDATE) values('virus" + i +"@virus.net' , '1234', 'std"+i+"' , now())";
 				stmt.executeUpdate(sql);
 			}
 		} catch (SQLException e) {
@@ -57,6 +57,12 @@ public class DBServiceController {
 	public ModelAndView parameterQuery(ModelAndView mav){
 		mav.addObject("members", memberService.getMembersUsingParameter());
 		mav.setViewName("week06/membersView");
+		return mav;
+	}
+	@GetMapping("/listQuery")
+	public ModelAndView listQuery(ModelAndView mav){
+		mav.addObject("memberList", memberService.getMembersUsingMap());
+		mav.setViewName("week06/memberListView");
 		return mav;
 	}
 }

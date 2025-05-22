@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class MemberRepository {
@@ -39,4 +40,10 @@ public class MemberRepository {
         return results;
     }
 
+    public List<Map<String, Object>> selectListMap(String sql, String email){
+        return  jdbcTemplate.queryForList(sql, email);
+    }
+    public void updateMember(String sql, Object[] args){
+        int cnt = jdbcTemplate.update(sql, args);
+    }
 }
