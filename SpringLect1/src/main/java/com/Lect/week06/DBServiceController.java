@@ -65,4 +65,22 @@ public class DBServiceController {
 		mav.setViewName("week06/memberListView");
 		return mav;
 	}
+	@GetMapping("/updateQuery")
+	public ModelAndView updateQuery(ModelAndView mav){
+		mav.addObject("members", memberService.getUpdateMembers());
+		mav.setViewName("week06/membersView");
+		return mav;
+	}
+	@GetMapping ("/batchUpdateArray")
+	public ModelAndView batchUpdateArray(ModelAndView mav){
+		mav.addObject("members", memberService.getBatchUpdateArray());
+		mav.setViewName("week06/membersView");
+		return mav;
+	}
+	@GetMapping("/batchUpdateSetter")
+	public ModelAndView batchUpdateSetter(ModelAndView mav){
+		mav.addObject("members", memberService.getBatchUpdateSetter());
+		mav.setViewName("week06/membersView");
+		return mav;
+	}
 }

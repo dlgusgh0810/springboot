@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class MemberService {
@@ -48,5 +45,25 @@ public class MemberService {
         sql = "select * from MEMBER where email = ?";
         Object[] args2 = {"virus1@virus.net"};
         return memberRepos.selectAllUsingParameter(sql, args2);
+    }
+    public List<Member> getBatchUpdateArray(){
+        String sql = "insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) values (?, ?, ?, ?)";
+        List<Object[]> memberData = Arrays.asList(
+                new Object[]{"john@example.com", "2456", "John", LocalDateTime.now()},
+                new Object[]{"jane@example.com", "34567", "Jane", LocalDateTime.now()},
+                new Object[]{"mike@example.com", "4567", "Mike", LocalDateTime.now()}
+        );
+        memberRepos.batchInsertMember(sql, memberData);
+        return getMembers();
+    }
+    public List<Member> getBatchUpdateSetter(){
+        String sql = "insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) values (?, ?, ?, ?)";
+        List<Member> memberData = Arrays.asList(
+                new Member("john@Setter.com", "2456", "JohnSetter", LocalDateTime.now()),
+                new Member("jane@Setter.com", "34567", "JaneSetter", LocalDateTime.now()),
+                new Member("mike@Seter.com", "4567", "MikeSetter", LocalDateTime.now())
+        );
+        memberRepos.batchInsertMembersSetter(sql, memberData);
+        return getMembers();
     }
 }

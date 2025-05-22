@@ -47,6 +47,9 @@
 		<li><a href="simpleQuery">jdbcTemplate.query() 사용1</a></li>
 		<li><a href="parameterQuery">jdbcTemplate.query() 사용2</a></li>
 		<li><a href="listQuery">jdbcTemplate.queryForList() 사용</a></li>
+		<li><a href="updateQuery">jdbcTemplate.update() 사용</a></li>
+		<li><a href="batchUpdateArray">jdbcTemplate.batchupdate() 사용1</a></li>
+		<li><a href="batchUpdateSetter">jdbcTemplate.batchupdate() 사용2</a></li>
 	</ul>
 </body>
 </html>
