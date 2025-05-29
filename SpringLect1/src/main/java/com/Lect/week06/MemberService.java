@@ -73,4 +73,15 @@ public class MemberService {
         System.out.println("자동 생성된 키 값 : "+keyHolder);
         return  getMembers();
     }
+    public List<Member> transactionProcess(){
+        try{
+            Member member = new Member("홍길동@virus.com" ,"1234","홍길동", LocalDateTime.now());
+            memberRepos.changePassword(member, "5678");
+        } catch (Exception e){
+            System.out.println("Transaction rolled back: " + e.getMessage());
+
+        }
+        String sql = "select * from MEMBER";
+        return memberRepos.selectAll(sql);
+    }
 }

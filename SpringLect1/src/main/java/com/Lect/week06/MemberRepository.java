@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.*;
 import java.util.List;
@@ -91,5 +92,13 @@ public class  MemberRepository {
         jdbcTemplate.update(pstmtObj, keyHolder);
         Number keyValue = keyHolder.getKey();
         return keyValue.longValue();
+    }
+    @Transactional(rollbackFor = SQLSyntaxErrorException.class)
+    public void changePassword(Member member, String newPasswd) {
+        String sql = "insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) values (?, ?, ?, ?)";
+        insertMember(member, sql);
+        sql = "update MEMBER set NAME = ?, PASSWORD = ? where EMAI = ?";
+        Object[] args1 = {member.getName(), newPasswd, member.getEmail()};
+        updateMember(sql, args1);
     }
 }

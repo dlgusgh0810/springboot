@@ -89,4 +89,10 @@ public class DBServiceController {
 		mav.setViewName("week06/membersView");
 		return mav;
 	}
+	@GetMapping("/transactionUpdate")
+	public ModelAndView transactionUpdate(ModelAndView mav){
+		mav.addObject("members",memberService.transactionProcess());
+		mav.setViewName("week06/membersView");
+		return mav;
+	}
 }
