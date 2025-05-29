@@ -66,4 +66,11 @@ public class MemberService {
         memberRepos.batchInsertMembersSetter(sql, memberData);
         return getMembers();
     }
+    public List<Member> getKeyHolder(){
+        String sql = "insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) values (?, ?, ?, ?)";
+        Member member = new Member("virus1@virus.com", "3456", "홍길동", LocalDateTime.now());
+        long keyHolder = memberRepos.insertMember(member, sql);
+        System.out.println("자동 생성된 키 값 : "+keyHolder);
+        return  getMembers();
+    }
 }

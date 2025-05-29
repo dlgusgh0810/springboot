@@ -50,6 +50,7 @@
 		<li><a href="updateQuery">jdbcTemplate.update() 사용</a></li>
 		<li><a href="batchUpdateArray">jdbcTemplate.batchupdate() 사용1</a></li>
 		<li><a href="batchUpdateSetter">jdbcTemplate.batchupdate() 사용2</a></li>
+		<li><a href="keyHolder">keyHolder&PreparedStatement() 사용</a></li>
 	</ul>
 </body>
 </html>

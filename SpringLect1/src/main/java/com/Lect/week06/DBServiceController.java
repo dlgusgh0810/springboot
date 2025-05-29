@@ -83,4 +83,10 @@ public class DBServiceController {
 		mav.setViewName("week06/membersView");
 		return mav;
 	}
+	@GetMapping("/keyHolder")
+	public ModelAndView keyHolder(ModelAndView mav){
+		mav.addObject("members", memberService.getKeyHolder());
+		mav.setViewName("week06/membersView");
+		return mav;
+	}
 }

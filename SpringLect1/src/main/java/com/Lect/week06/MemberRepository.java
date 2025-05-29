@@ -3,18 +3,19 @@ package com.Lect.week06;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
 @Repository
-public class MemberRepository {
+public class  MemberRepository {
     @Autowired
     private final JdbcTemplate jdbcTemplate = null;
 
@@ -68,5 +69,27 @@ public class MemberRepository {
                 return memberData.size();
             }
         });
+    }
+    public PreparedStatementCreator createPreparedStatement(Member member, String sql, String[] args){
+        return new PreparedStatementCreator(){
+
+            @Override
+            public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+                PreparedStatement pstmt = con.prepareStatement(sql, args);
+                pstmt.setString(1, member.getEmail());
+                pstmt.setString(2, member.getPassword());
+                pstmt.setString(3, member.getName());
+                pstmt.setTimestamp(4, Timestamp.valueOf(member.getRegisterDateTime()));
+                return pstmt;
+            }
+
+        };
+    }
+    public long insertMember(Member member, String sql){
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        PreparedStatementCreator pstmtObj = createPreparedStatement(member, sql, new String[] {"ID"});
+        jdbcTemplate.update(pstmtObj, keyHolder);
+        Number keyValue = keyHolder.getKey();
+        return keyValue.longValue();
     }
 }
