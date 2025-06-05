@@ -54,5 +54,9 @@
 		<li><a href="transactionUpdate">@Transaction 사용</a></li>
 
 	</ul>
+	<h3>9주차 실습</h3>
+	<ul>
+		<li><a href="regist/step/1">요청파라미터&커맨드객체&리다이렉션트 실습</a></li>
+	</ul>
 </body>
 </html>
