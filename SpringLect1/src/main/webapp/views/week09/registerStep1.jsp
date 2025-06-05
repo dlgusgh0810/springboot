@@ -10,7 +10,7 @@
 <body>
     <h2>약관</h2>
     <p>약관 내용</p>
-    <from action="/regist/step2" method ="post">
+    <form action="/regist/step2" method ="post">
         <input type="hidden" name ="view" value="registerStep2">
         <label>
             <input type="checkbox" name="agree"value ="true"> 약관 동의
@@ -19,6 +19,6 @@
         <c:if test="${not empty message}">
             <p style="color: blue;">${message}</p>
         </c:if>
-    </from>
+    </form>
 </body>
 </html>

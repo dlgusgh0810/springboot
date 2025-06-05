@@ -9,9 +9,9 @@
 </head>
 <body>
     <h3>가입 회원 정보</h3>
-    <strong>메일 : ${registerRequest.email}</strong>
-    <strong>이름 : ${registerRequest.name}</strong>
-    <strong>암호 : ${registerRequest.password}</strong>
+    <strong>메일 : ${registerRequest.email}</strong><br>
+    <strong>이름 : ${registerRequest.name}</strong><br>
+    <strong>암호 : ${registerRequest.password}</strong><br>
     <strong>확인 : ${registerRequest.confirmPassword}</strong>
     <br><h3> 회원 가입을 완료했습니다.</h3><br>
     <p><a href="<c:url value='/main'/>">[첫 화면 이동]</a></p>
