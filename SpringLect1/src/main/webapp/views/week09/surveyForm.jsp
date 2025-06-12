@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-         pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="EUC-KR">
-    <title>¼³¹®Á¶»ç</title>
+    <title>ì„¤ë¬¸ì¡°ì‚¬</title>
 </head>
 <body>
-    <h2>¼³¹®Á¶»ç</h2>
+    <h2>ì„¤ë¬¸ì¡°ì‚¬</h2>
     <form method="post">
-        <c:forEach var="q" items="&{questions}" varStatus="status">
+        <c:forEach var="q" items="${questions}" varStatus="status">
             <p>
+                ${status.index +1}. ${q.title}<br>
                 <c:if test="${q.choice}">
                     <c:forEach var="option" items="${q.options}">
                         <label><input type="radio" name="responses[${status.index}]" value="${option}">
@@ -20,21 +20,21 @@
                     </c:forEach>
                 </c:if>
                 <c:if test="${! q.choice}">
-                    <input type="text" name="responses[${status.index}]"
+                    <input type="text" name="responses[${status.index}]">
                 </c:if>
             </p>
         </c:forEach>
         <p>
-            <label>ÀÀ´äÀÚ À§Ä¡:<br>
+            <label>ì‘ë‹µìž ìœ„ì¹˜:<br>
                 <input type="text" name="res.location">
             </label>
         </p>
         <p>
-            <label>ÀÀ´äÀÚ ³ªÀÌ:<br>
+            <label>ì‘ë‹µìž ë‚˜ì´:<br>
                 <input type="text" name="res.age">
             </label>
         </p>
-        <input type="submit" value="Àü¼Û">
+        <input type="submit" value="ì „ì†¡">
     </form>
 </body>
 </html>
