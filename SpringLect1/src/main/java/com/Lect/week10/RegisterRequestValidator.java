@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class RegisterRequestValidator implements Validator {
     private static final String regExp =
-            "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&)[A-Za-z\\d@$!%*?&]{8,}$";
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
     private Pattern pattern;
     public RegisterRequestValidator() {
         pattern = Pattern.compile(regExp);
@@ -23,7 +23,7 @@ public class RegisterRequestValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         RegisterRequest regReq = (RegisterRequest) target;
-        if(regReq.getEmail() == null || regReq.getEmail().contains("@")){
+        if(regReq.getEmail() == null || !regReq.getEmail().contains("@")){
             errors.rejectValue("email", "email.invalid", "Invalid email address");
         }
         Matcher matcher = pattern.matcher(regReq.getPassword());

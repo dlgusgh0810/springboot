@@ -32,8 +32,9 @@
         </p>
         <p>
             <label><spring:message code="password.confirm"/>:<br>
-                <input type="password" name="confirmPassword" id="confirmPassword" value="${registerRequest.confirmPassword}" onfocus="this.value = '';">
-            </label>
+            <form:input path="confirmPassword"/>
+            <form:errors path="confirmPassword"/>
+        </label>
         </p>
         <input type="submit" value="<spring:message code="register.btn" />">
     </form:form>
