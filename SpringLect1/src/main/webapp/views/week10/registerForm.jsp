@@ -35,7 +35,7 @@
                 <input type="password" name="confirmPassword" id="confirmPassword" value="${registerRequest.confirmPassword}" onfocus="this.value = '';">
             </label>
         </p>
-        <input type="submit" value="<spring:message code="register.btn" />>
+        <input type="submit" value="<spring:message code="register.btn" />">
     </form:form>
 </body>
 </html>
